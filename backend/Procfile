@@ -1,0 +1,2 @@
+web: node server.js
+python: python python_adaptive_api.py

@@ -13,18 +13,36 @@ class InMemoryDB {
   }
 
   run(sql, params, callback) {
-    // Simple implementation for basic operations
-    setTimeout(() => callback(null), 0);
+    // Handle both (sql, callback) and (sql, params, callback) patterns
+    if (typeof params === 'function') {
+      callback = params;
+      params = [];
+    }
+    if (callback && typeof callback === 'function') {
+      setTimeout(() => callback.call({ lastID: 1, changes: 1 }, null), 0);
+    }
   }
 
   get(sql, params, callback) {
-    // Simple implementation
-    setTimeout(() => callback(null, null), 0);
+    // Handle both (sql, callback) and (sql, params, callback) patterns
+    if (typeof params === 'function') {
+      callback = params;
+      params = [];
+    }
+    if (callback && typeof callback === 'function') {
+      setTimeout(() => callback(null, null), 0);
+    }
   }
 
   all(sql, params, callback) {
-    // Simple implementation
-    setTimeout(() => callback(null, []), 0);
+    // Handle both (sql, callback) and (sql, params, callback) patterns
+    if (typeof params === 'function') {
+      callback = params;
+      params = [];
+    }
+    if (callback && typeof callback === 'function') {
+      setTimeout(() => callback(null, []), 0);
+    }
   }
 }
 

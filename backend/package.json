@@ -4,8 +4,9 @@
   "description": "Advanced EdTech Platform Backend with AI-driven personalized learning, adaptive assessment, and gamification",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "npm ci --only=production",
+    "start": "node app.js",
+    "start:node": "node server.js",
+    "build": "npm ci --only=production && pip install -r requirements.txt",
     "dev": "nodemon server.js",
     "test": "jest",
     "migrate": "npx sequelize-cli db:migrate",
@@ -56,6 +57,7 @@
   "license": "MIT",
   "engines": {
     "node": "18.x",
-    "npm": ">=9.0.0"
+    "npm": ">=9.0.0",
+    "python": "3.9.x"
   }
 }
